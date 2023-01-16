@@ -12,6 +12,7 @@ export class RegisterFormComponent {
         private fb: FormBuilder
     ) {}
 
+    public sending: boolean = false
     public form: FormGroup = this.fb.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
@@ -25,6 +26,8 @@ export class RegisterFormComponent {
     }
 
     protected send(): void {
+        this.sending = true
+        this.form.disable()
         console.log(this.form.value)
     }
 }

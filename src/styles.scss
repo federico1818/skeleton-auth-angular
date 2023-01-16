@@ -7,3 +7,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: grid;
     grid-gap: 16px;
 }
+
+.form.sending,
+.form.sending label,
+.form.sending input {
+    cursor: progress;
+}
