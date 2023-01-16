@@ -5,10 +5,11 @@ import { RegisterRoutingModule } from './register-routing.module'
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RegisterRoutingModule
-  ]
+    declarations: [],
+    imports: [
+        CommonModule,
+        RegisterRoutingModule
+    ]
 })
+
 export class RegisterModule { }
