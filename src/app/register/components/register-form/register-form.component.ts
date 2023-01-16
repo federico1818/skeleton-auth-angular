@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { RegisterService } from 'src/app/register/services/register.service'
 
 @Component({
     selector: 'app-register-form',
@@ -9,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 export class RegisterFormComponent {
     constructor(
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private registerService: RegisterService
     ) {}
 
     public sending: boolean = false
@@ -28,6 +30,8 @@ export class RegisterFormComponent {
     protected send(): void {
         this.sending = true
         this.form.disable()
-        console.log(this.form.value)
+        this.registerService.store(this.form.value).subscribe(data => {
+            console.log(data)
+        })
     }
 }
