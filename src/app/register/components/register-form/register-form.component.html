@@ -1,1 +1,4 @@
-<p>register-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Name">
+    <button type="submit">Enviar</button>
+</form>
