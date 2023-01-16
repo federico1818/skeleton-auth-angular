@@ -13,7 +13,10 @@ export class RegisterFormComponent {
     ) {}
 
     public form: FormGroup = this.fb.group({
-        name: ['', Validators.required]
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required],
+        password_confirmation: ['', Validators.required]
     })
 
     public onSubmit(): void {

@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
+import { MaterialModule } from 'src/app/material/material.module'
 import { RegisterRoutingModule } from './register-routing.module'
-import { RegisterComponent } from './pages/register/register.component';
+import { RegisterComponent } from './pages/register/register.component'
 import { RegisterFormComponent } from './components/register-form/register-form.component'
 
 
@@ -16,7 +17,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RegisterRoutingModule
+        MaterialModule,
+        RegisterRoutingModule,
     ]
 })
 
