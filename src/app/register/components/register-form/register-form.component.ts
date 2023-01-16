@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http'
 import { Component } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { throwError } from 'rxjs'
+import { Observable, throwError } from 'rxjs'
 import { catchError } from 'rxjs/operators'
 
 import { RegisterService } from 'src/app/register/services/register.service'
@@ -37,17 +37,33 @@ export class RegisterFormComponent {
         this.form.disable()
         this.registerService.store(this.form.value)
         .pipe(
-            catchError((error: HttpErrorResponse) => {
-                if(error.status == HttpStatusCode.UnprocessableEntity)
-                    this.setErrors(error.error)
-                return throwError(() => error)
-            })
+            catchError(this.onError.bind(this))
         ).subscribe(data => {
             console.log(data)
         })
     }
 
-    protected setErrors(error: UnprocessableEntityError): void {
-        console.log(error)
+    protected onError(error: HttpErrorResponse): Observable<never> {
+        this.form.enable()
+        this.sending = false
+
+        /*
+        if(error.status == HttpStatusCode.UnprocessableEntity)
+            this.onUnprocessableEntityError(error.error)
+        */
+
+        return throwError(() => error)
+    }
+
+    protected onUnprocessableEntityError(error: UnprocessableEntityError): void {
+        this.setFormErrors(error)
+    }
+
+    protected setFormErrors(error: UnprocessableEntityError): void {
+        Object.getOwnPropertyNames(error.errors).forEach((property: string) => {
+            this.form.controls[property].setErrors({
+                required: true
+            })
+        })
     }
 }
