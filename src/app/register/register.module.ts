@@ -6,13 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MaterialModule } from 'src/app/material/material.module'
 import { RegisterRoutingModule } from './register-routing.module'
 import { RegisterComponent } from './pages/register/register.component'
-import { RegisterFormComponent } from './components/register-form/register-form.component'
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RegisterSuccessComponent } from './pages/register-success/register-success.component'
 
 
 @NgModule({
     declarations: [
         RegisterComponent,
-        RegisterFormComponent
+        RegisterFormComponent,
+        RegisterSuccessComponent
     ],
     imports: [
         CommonModule,

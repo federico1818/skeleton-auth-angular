@@ -9,12 +9,14 @@
         <input matInput type="email" formControlName="email" placeholder="Email">
         <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">Invalid format</mat-error>
         <mat-error *ngIf="form.controls['email'].hasError('required')">Required</mat-error>
-        <mat-error *ngIf="form.controls['email'].hasError('unique')">Unique</mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('unique')">{{ messages.email.unique }}</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password" placeholder="Password">
         <mat-error *ngIf="form.controls['password'].hasError('required')">Required</mat-error>
+        <mat-error *ngIf="form.controls['password'].hasError('min')">{{ messages.password.min }}</mat-error>
+        <mat-error *ngIf="form.controls['password'].hasError('confirmed')">{{ messages.password.confirmed }}</mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password confirmation</mat-label>

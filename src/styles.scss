@@ -14,19 +14,40 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+body {
+    display: grid;
+    justify-items: center;
+    align-items: start;
+}
+
+app-root {
+    display: grid;
+    justify-items: center;
+    padding: 32px;
+    grid-gap: 24px 0;
+    max-width: 320px;
+    width: 100%;
+}
+
 .logo {
     width: 192px;
 }
 
-.box {
-    display: grid;
-    justify-items: center;
-    grid-gap: 24px;
-    padding: 32px;
-    max-width: 320px;
+.router-outlet {
+    display: none;
 }
 
-.mat-typography h1.box-title {
+.router-outlet + * {
+    width: 100%;
+    display: grid;
+    grid-gap: 24px 0;
+    justify-items: center;
+}
+
+.box {
+}
+
+.mat-typography h1.page-title {
     margin: 0;
 }
 

@@ -1,4 +1,7 @@
 export interface UnprocessableEntityError {
-    errors: any
+    errors: {
+        messages: any,
+        validators: any
+    }
     message: string
 }
