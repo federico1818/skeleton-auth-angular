@@ -47,6 +47,7 @@ export class RegisterFormComponent {
         this.form.enable()
         this.sending = false
 
+        this.form.controls['email'].setErrors({ 'unique': true })
         /*
         if(error.status == HttpStatusCode.UnprocessableEntity)
             this.onUnprocessableEntityError(error.error)

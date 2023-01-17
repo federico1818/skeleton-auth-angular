@@ -3,6 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+h1 {
+    margin: 0;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -10,8 +14,24 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
-.form-container {
+.logo {
+    width: 192px;
+}
+
+.box {
+    display: grid;
+    justify-items: center;
+    grid-gap: 24px;
     padding: 32px;
+    max-width: 320px;
+}
+
+.mat-typography h1.box-title {
+    margin: 0;
+}
+
+.form-container {
+    width: 100%;
 }
 
 .form {
