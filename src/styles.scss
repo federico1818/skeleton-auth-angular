@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #7FA89A;
+    --accent-color: #A88F77;
+    --body-bg-color: #EEE;
+    --box-bg-color: #FFF;
+    --box-border: 1px solid #394149;
+    --box-title-color: var(--accent-color);
+}
+
+* {
+    box-sizing: border-box;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -18,15 +30,20 @@ body {
     display: grid;
     justify-items: center;
     align-items: start;
+    background-color: var(--body-bg-color);
 }
 
 app-root {
     display: grid;
     justify-items: center;
-    padding: 32px;
+    padding: 16px;
     grid-gap: 24px 0;
-    max-width: 320px;
+    max-width: 400px;
     width: 100%;
+}
+
+.primary {
+    color: var(--primary-color);
 }
 
 .logo {
@@ -45,9 +62,40 @@ app-root {
 }
 
 .box {
+    display: grid;
+    background-color: var(--box-bg-color);
+    width: 100%;
+    max-width: 480px;
+    padding: 32px 16px;
+    border-radius: 8px;
+    border: var(--box-border);
 }
 
-.mat-typography h1.page-title {
+.box-info {
+
+    justify-items: center;
+    grid-gap: 4px 0;
+
+    & .box-title {
+        font-size: 18px;
+        color: var(--box-title-color);
+    }
+
+    & .box-image {
+        width: 100%;
+        max-height: 128px;
+        margin-bottom: 24px;
+    }
+
+    & .box-text {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+.mat-typography h1.page-title,
+.mat-typography h2.box-title,
+.mat-typography p {
     margin: 0;
 }
 
