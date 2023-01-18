@@ -12,6 +12,10 @@ export class NavigationService {
         private _router: Router
     ) {}
 
+    public goToRegister(): void {
+        this._router.navigate([ APP_ROUTES.REGISTER ])
+    }
+
     public goToRegisterSuccess(user: User): void {
         this._router.navigate([ APP_ROUTES.REGISTER_SUCCESS ], { state: { user: user }})
     }
