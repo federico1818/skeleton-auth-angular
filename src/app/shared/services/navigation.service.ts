@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 import { APP_ROUTES } from 'src/app/app-routes'
+import { User } from 'src/app/shared/models/user'
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ export class NavigationService {
         private _router: Router
     ) {}
 
-    public goToRegisterSuccess(): void {
-        this._router.navigate([ APP_ROUTES.REGISTER_SUCCESS ])
+    public goToRegisterSuccess(user: User): void {
+        this._router.navigate([ APP_ROUTES.REGISTER_SUCCESS ], { state: { user: user }})
     }
 }

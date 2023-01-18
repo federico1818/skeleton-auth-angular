@@ -1,4 +1,4 @@
-<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" [class.sending]="sending">
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" [class.sending]="isSending">
     <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput type="text" formControlName="name" placeholder="Name" autofocus>
@@ -23,8 +23,8 @@
         <input matInput type="password" formControlName="password_confirmation" placeholder="Password confirmation">
         <mat-error *ngIf="form.controls['password_confirmation'].hasError('required')">Required</mat-error>
     </mat-form-field>
-    <button class="button" type="submit" mat-raised-button [disabled]="sending" color="primary">
-        <span *ngIf="!sending">Send</span>
-        <span *ngIf="sending">Sending...</span>
+    <button class="button" type="submit" mat-raised-button [disabled]="isSending" color="primary">
+        <span *ngIf="!isSending">Send</span>
+        <span *ngIf="isSending">Sending...</span>
     </button>
 </form>

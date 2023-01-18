@@ -1,12 +1,8 @@
-import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http'
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Observable, throwError } from 'rxjs'
-import { catchError } from 'rxjs/operators'
-
-import { RegisterService } from 'src/app/register/services/register.service'
-import { NavigationService } from 'src/app/shared/services/navigation.service'
+import { RegisterFormService } from 'src/app/register/services/register-form.service'
 import { UnprocessableEntityError } from 'src/app/shared/errors/unprocessable-entity-error'
+import { RegisterResponseDTO } from '../../register-response-dto'
 
 @Component({
     selector: 'app-register-form',
@@ -14,15 +10,15 @@ import { UnprocessableEntityError } from 'src/app/shared/errors/unprocessable-en
     styleUrls: ['./register-form.component.scss']
 })
 
-export class RegisterFormComponent {
+export class RegisterFormComponent implements OnInit {
+
     constructor(
         private fb: FormBuilder,
-        private registerService: RegisterService,
-        private navigationService: NavigationService
+        private registerFormService: RegisterFormService
     ) {}
 
+    private _isSending: boolean = false
     public messages: any = {}
-    public sending: boolean = false
     public form: FormGroup = this.fb.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
@@ -30,38 +26,41 @@ export class RegisterFormComponent {
         password_confirmation: ['', Validators.required]
     })
 
+    public ngOnInit(): void {
+        this.registerFormService.onSuccess.subscribe(this.onSuccess.bind(this))
+        this.registerFormService.onUnprocessableEntityError.subscribe(this.onUnprocessableEntityError.bind(this))
+    }
+
     public onSubmit(): void {
         if(this.form.valid)
             this.send()
     }
 
+    public get isSending(): boolean {
+        return this._isSending
+    }
+
     protected send(): void {
-        this.sending = true
+        this.sending()
+        this.registerFormService.send(this.form.value)
+    }
+
+    protected sending(): void {
+        this._isSending = true
         this.form.disable()
-        this.registerService.store(this.form.value)
-        .pipe(
-            catchError(this.onError.bind(this))
-        ).subscribe(
-            this.onSuccess.bind(this)
-        )
     }
 
-    protected onSuccess(data: any): void {
-        console.log(data)
-        this.navigationService.goToRegisterSuccess()
-    }
-
-    protected onError(error: HttpErrorResponse): Observable<never> {
+    protected stop(): void {
+        this._isSending = false
         this.form.enable()
-        this.sending = false
-
-        if(error.status == HttpStatusCode.UnprocessableEntity)
-            this.onUnprocessableEntityError(error.error as UnprocessableEntityError)
-
-        return throwError(() => error)
     }
 
-    protected onUnprocessableEntityError(error: UnprocessableEntityError): void {
+    public onSuccess(): void {
+        this.stop()
+    }
+
+    public onUnprocessableEntityError(error: UnprocessableEntityError): void {
+        this.stop()
         this.setFormErrors(error)
     }
 
