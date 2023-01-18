@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { RegisterFormService } from 'src/app/register/services/register-form.service'
 import { UnprocessableEntityError } from 'src/app/shared/errors/unprocessable-entity-error'
-import { RegisterResponseDTO } from '../../register-response-dto'
 
 @Component({
     selector: 'app-register-form',
@@ -13,13 +12,13 @@ import { RegisterResponseDTO } from '../../register-response-dto'
 export class RegisterFormComponent implements OnInit {
 
     constructor(
-        private fb: FormBuilder,
-        private registerFormService: RegisterFormService
+        private _fb: FormBuilder,
+        private _registerFormService: RegisterFormService
     ) {}
 
     private _isSending: boolean = false
     public messages: any = {}
-    public form: FormGroup = this.fb.group({
+    public form: FormGroup = this._fb.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
@@ -27,8 +26,8 @@ export class RegisterFormComponent implements OnInit {
     })
 
     public ngOnInit(): void {
-        this.registerFormService.onSuccess.subscribe(this.onSuccess.bind(this))
-        this.registerFormService.onUnprocessableEntityError.subscribe(this.onUnprocessableEntityError.bind(this))
+        this._registerFormService.onSuccess.subscribe(this.onSuccess.bind(this))
+        this._registerFormService.onUnprocessableEntityError.subscribe(this.onUnprocessableEntityError.bind(this))
     }
 
     public onSubmit(): void {
@@ -42,7 +41,7 @@ export class RegisterFormComponent implements OnInit {
 
     protected send(): void {
         this.sending()
-        this.registerFormService.send(this.form.value)
+        this._registerFormService.send(this.form.value)
     }
 
     protected sending(): void {
