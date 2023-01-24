@@ -1,14 +1,14 @@
 <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" [class.sending]="isSending">
     <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput type="text" formControlName="name" placeholder="Name" autofocus>
-        <mat-error *ngIf="form.controls['name'].hasError('required')">Required</mat-error>
+        <mat-label i18n="@@register-form-field-name">Name</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Name" i18n-placeholder="@@register-form-field-name" autofocus>
+        <mat-error *ngIf="form.controls['name'].hasError('required')" i18n="@@register-form-required">Required</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" placeholder="Email">
+        <mat-label i18n="@@register-form-field-email">Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Email" i18n-placeholder="@@register-form-field-email">
         <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">Invalid format</mat-error>
-        <mat-error *ngIf="form.controls['email'].hasError('required')">Required</mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('required')" i18n="@@register-form-required">Required</mat-error>
         <mat-error *ngIf="form.controls['email'].hasError('unique')">{{ messages.email.unique }}</mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -24,7 +24,7 @@
         <mat-error *ngIf="form.controls['password_confirmation'].hasError('required')">Required</mat-error>
     </mat-form-field>
     <button class="button" type="submit" mat-flat-button [disabled]="isSending" color="primary">
-        <span *ngIf="!isSending">Send</span>
-        <span *ngIf="isSending">Sending...</span>
+        <span *ngIf="!isSending" i18n="@@register-form-button-send">Send</span>
+        <span *ngIf="isSending" i18n="@@register-form-button-sending">Sending...</span>
     </button>
 </form>

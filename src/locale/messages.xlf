@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="register-form-field-name" datatype="html">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="register-form-required" datatype="html">
+        <source>Required</source>
+      </trans-unit>
+      <trans-unit id="register-form-field-email" datatype="html">
+        <source>Email</source>
+      </trans-unit>
+      <trans-unit id="register-form-button-send" datatype="html">
+        <source>Send</source>
+      </trans-unit>
+      <trans-unit id="register-form-button-sending" datatype="html">
+        <source>Sending...</source>
+      </trans-unit>
+      <trans-unit id="register-page-title" datatype="html">
+        <source>Register</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
