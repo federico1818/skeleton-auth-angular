@@ -1,32 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-:root {
-    --primary-color: #7FA89A;
-    --primary-monochrome-dark-2: #59756C;
-    --accent-color: #A88F77;
-}
+@import './src/assets/scss/reset';
+@import './src/assets/scss/themes/light';
+@import './src/assets/scss/material/material';
 
-:root {
-    --body-bg-color: #EEE;
-    --box-bg-color: #FFF;
-    --box-border: 1px solid var(--primary-monochrome-dark-2);
-    --box-title-color: var(--accent-color);
-}
 
 ::selection {
     background-color: var(--primary-color);
     color: white;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-h1 {
-    margin: 0;
-}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -36,9 +17,10 @@ input:-webkit-autofill:active {
 }
 
 body {
-    display: grid;
-    justify-items: center;
     align-items: start;
+    display: grid;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    justify-items: center;
     background-color: var(--body-bg-color);
 }
 

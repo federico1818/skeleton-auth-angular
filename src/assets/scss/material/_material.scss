@@ -1,0 +1,17 @@
+:root {
+    --mdc-theme-primary: var(--primary-color);
+    --mdc-theme-error: var(--error-color);
+}
+
+.mat-mdc-unelevated-button.mat-primary {
+    --mdc-filled-button-container-color: var(--primary-color);
+    --mdc-filled-button-label-text-color: var(--on-primary-color);
+}
+
+.mdc-text-field .mdc-text-field__input {
+    caret-color: var(--primary-color);
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled):not(.mdc-text-field--invalid) .mdc-floating-label {
+    color: var(--primary-complementary-similar-2);
+}

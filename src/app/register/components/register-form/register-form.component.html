@@ -23,7 +23,7 @@
         <input matInput type="password" formControlName="password_confirmation" placeholder="Password confirmation">
         <mat-error *ngIf="form.controls['password_confirmation'].hasError('required')">Required</mat-error>
     </mat-form-field>
-    <button class="button" type="submit" mat-raised-button [disabled]="isSending" color="primary">
+    <button class="button" type="submit" mat-flat-button [disabled]="isSending" color="primary">
         <span *ngIf="!isSending">Send</span>
         <span *ngIf="isSending">Sending...</span>
     </button>
