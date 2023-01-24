@@ -1,8 +1,10 @@
 <div class="box box-info">
     <img class="box-image" src="assets/img/opened_re_i38e.svg" alt="mailbox">
-    <h2 class="box-title">Sólo un paso más...</h2>
+    <h2 class="box-title" i18n="@@register-success-title">Just one more step...</h2>
     <div class="box-text">
-        <p>Te hemos enviado un email a <strong class="primary">{{ user.email }}</strong></p>
-        <p>Verifica tu correo electrónico</p>
+        <p>
+            <span i18n="@@register-success-text-send">We have sent you an email to</span>&nbsp;<strong class="primary">{{ user.email }}</strong>
+        </p>
+        <p i18n="@@register-success-text-check">Please, check your email</p>
     </div>
 </div>

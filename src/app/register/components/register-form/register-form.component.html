@@ -12,16 +12,16 @@
         <mat-error *ngIf="form.controls['email'].hasError('unique')">{{ messages.email.unique }}</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" placeholder="Password">
-        <mat-error *ngIf="form.controls['password'].hasError('required')">Required</mat-error>
+        <mat-label i18n="@@register-form-field-password">Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Password" i18n-placeholder="@@register-form-field-password">
+        <mat-error *ngIf="form.controls['password'].hasError('required')" i18n="@@register-form-required">Required</mat-error>
         <mat-error *ngIf="form.controls['password'].hasError('min')">{{ messages.password.min }}</mat-error>
         <mat-error *ngIf="form.controls['password'].hasError('confirmed')">{{ messages.password.confirmed }}</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Password confirmation</mat-label>
-        <input matInput type="password" formControlName="password_confirmation" placeholder="Password confirmation">
-        <mat-error *ngIf="form.controls['password_confirmation'].hasError('required')">Required</mat-error>
+        <mat-label i18n="@@register-form-field-password-confirmation">Password confirmation</mat-label>
+        <input matInput type="password" formControlName="password_confirmation" placeholder="Password confirmation" i18n-placeholder="@@register-form-field-password-confirmation">
+        <mat-error *ngIf="form.controls['password_confirmation'].hasError('required')" i18n="@@register-form-required">Required</mat-error>
     </mat-form-field>
     <button class="button" type="submit" mat-flat-button [disabled]="isSending" color="primary">
         <span *ngIf="!isSending" i18n="@@register-form-button-send">Send</span>

@@ -11,6 +11,12 @@
       <trans-unit id="register-form-field-email" datatype="html">
         <source>Email</source>
       </trans-unit>
+      <trans-unit id="register-form-field-password" datatype="html">
+        <source>Password</source>
+      </trans-unit>
+      <trans-unit id="register-form-field-password-confirmation" datatype="html">
+        <source>Password confirmation</source>
+      </trans-unit>
       <trans-unit id="register-form-button-send" datatype="html">
         <source>Send</source>
       </trans-unit>
@@ -19,6 +25,15 @@
       </trans-unit>
       <trans-unit id="register-page-title" datatype="html">
         <source>Register</source>
+      </trans-unit>
+      <trans-unit id="register-success-title" datatype="html">
+        <source>Just one more step...</source>
+      </trans-unit>
+      <trans-unit id="register-success-text-send" datatype="html">
+        <source>We have sent you an email to</source>
+      </trans-unit>
+      <trans-unit id="register-success-text-check" datatype="html">
+        <source>Please, check your email</source>
       </trans-unit>
     </body>
   </file>

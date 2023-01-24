@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="es-AR" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="register-form-field-name" datatype="html">
         <source>Name</source>
@@ -14,6 +14,14 @@
         <source>Email</source>
         <target>Correo electrónico</target>
       </trans-unit>
+      <trans-unit id="register-form-field-password" datatype="html">
+        <source>Password</source>
+        <target>Contraseña</target>
+      </trans-unit>
+      <trans-unit id="register-form-field-password-confirmation" datatype="html">
+        <source>Password confirmation</source>
+        <target>Confirmar contraseña</target>
+      </trans-unit>
       <trans-unit id="register-form-button-send" datatype="html">
         <source>Send</source>
         <target>Enviar</target>
@@ -25,6 +33,18 @@
       <trans-unit id="register-page-title" datatype="html">
         <source>Register</source>
         <target>Registrarse</target>
+      </trans-unit>
+      <trans-unit id="register-success-title" datatype="html">
+        <source>Just one more step...</source>
+        <target>Sólo un paso más...</target>
+      </trans-unit>
+      <trans-unit id="register-success-text-send" datatype="html">
+        <source>We have sent you an email to</source>
+        <target>Te hemos enviado un email a</target>
+      </trans-unit>
+      <trans-unit id="register-success-text-check" datatype="html">
+        <source>Please, check your email</source>
+        <target>Por favor, revisa tu correo electrónico.</target>
       </trans-unit>
     </body>
   </file>
